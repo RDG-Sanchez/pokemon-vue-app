@@ -30,22 +30,15 @@ const typesDictionary = (type) => {
 // * Devuelve un estilo en base a un tipo.
 const colorsDistionary = (type) => {
   const colors = {
-    grass:
-      "background-color: rgba(34, 136, 72, 0.15) ; color: rgb(34, 136, 72);",
-    fire: "background-color: rgba(194, 65, 12, 0.15) ; color: rgb(194, 65, 12);",
-    water:
-      "background-color: rgba(3, 105, 161, 0.15) ; color: rgb(3, 105, 161);",
-    bug: "background-color: rgba(197, 183, 125, 0.15) ; color: rgb(197, 183, 125);",
-    normal:
-      "background-color: rgba(183, 183, 197, 0.15) ; color: rgb(183, 183, 197);",
-    poison:
-      "background-color: rgba(135, 146, 49, 0.15) ; color: rgb(135, 146, 49);",
-    electric:
-      "background-color: rgba(255, 212, 81, 0.15) ; color: rgb(255, 212, 81);",
-    ground:
-      "background-color: rgba(139, 110, 96, 0.15) ; color: rgb(139, 110, 96);",
-    fairy:
-      "background-color: rgba(241, 168, 241, 0.15) ; color: rgb(241, 168, 241);",
+    grass: "bg-types-grass/15 text-types-grass",
+    fire: "bg-types-fire/15 text-types-fire",
+    water: "bg-types-water/15 text-types-water",
+    bug: "bg-types-bug/15 text-types-bug",
+    normal: "bg-types-normal/15 text-types-normal",
+    poison: "bg-types-poison/15 text-types-poison",
+    electric: "bg-types-electric/15 text-types-electric",
+    ground: "bg-types-ground/15 text-types-ground",
+    fairy: "bg-types-fairy/15 text-types-fairy",
   };
 
   const colorCatched = colors.hasOwnProperty(type) ? colors[type] : type.normal;

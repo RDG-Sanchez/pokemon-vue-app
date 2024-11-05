@@ -29,7 +29,7 @@ onMounted(() => {
     <Column class="w-1/4" field="name" header="Nombre"></Column>
     <Column class="w-1/4" field="type" header="Tipo">
       <template #body="{ data }">
-        <Tag :style="colorsDistionary(data.type)">{{
+        <Tag :class="colorsDistionary(data.type)">{{
           typesDictionary(data.type)
         }}</Tag>
       </template>
