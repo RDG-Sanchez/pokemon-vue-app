@@ -1,20 +1,14 @@
 <script setup></script>
 
 <template>
-  <div class="container-loader">
+  <div
+    class="h-[80dvh] flex flex-col items-center justify-center"
+  >
     <span class="loader"></span>
   </div>
 </template>
 
 <style scoped>
-.container-loader {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .loader {
   width: 48px;
   height: 48px;
