@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // * Formatea el nombre de un Pokemon.
-const upperFirstLetter = (word) => {
+const capitalizeString = (word) => {
   const wordSplit = word.split("");
   wordSplit[0] = wordSplit[0].toUpperCase();
 
@@ -9,7 +9,7 @@ const upperFirstLetter = (word) => {
 };
 
 // * Devuelve un tipo formateado y en español.
-const typesDictionary = (type) => {
+const getSpanishType = (type) => {
   const types = {
     normal: "Normal",
     fire: "Fuego",
@@ -37,7 +37,7 @@ const typesDictionary = (type) => {
 };
 
 // * Devuelve un estilo en base a un tipo.
-const colorsDistionary = (type) => {
+const getTailwindClass = (type) => {
   const colors = {
     normal: "bg-types-normal/15 text-types-normal",
     fire: "bg-types-fire/15 text-types-fire",
@@ -83,28 +83,12 @@ const getPokemons = async (isLoading, setData) => {
           item.stat.name === "speed"
       );
 
-      console.log({
-        id: data.id,
-        name: upperFirstLetter(data.name),
-        type: {
-          class: colorsDistionary(data.types[0].type.name),
-          name: typesDictionary(data.types[0].type.name),
-        },
-        sprite: data.sprites.front_default,
-        stats: {
-          hp: hp.base_stat,
-          attack: attack.base_stat,
-          defense: defense.base_stat,
-          speed: speed.base_stat,
-        },
-      })
-
       return {
         id: data.id,
-        name: upperFirstLetter(data.name),
+        name: capitalizeString(data.name),
         type: {
-          class: colorsDistionary(data.types[0].type.name),
-          name: typesDictionary(data.types[0].type.name),
+          class: getTailwindClass(data.types[0].type.name),
+          name: getSpanishType(data.types[0].type.name),
         },
         sprite: data.sprites.front_default,
         stats: {
@@ -145,10 +129,10 @@ const getMorePokemons = async (isLoading, setData) => {
 
       return {
         id: data.id,
-        name: upperFirstLetter(data.name),
+        name: capitalizeString(data.name),
         type: {
-          class: colorsDistionary(data.types[0].type.name),
-          name: typesDictionary(data.types[0].type.name),
+          class: getTailwindClass(data.types[0].type.name),
+          name: getSpanishType(data.types[0].type.name),
         },
         sprite: data.sprites.front_default,
         stats: {
@@ -170,4 +154,5 @@ const getMorePokemons = async (isLoading, setData) => {
     alert("Ha ocurrido un error");
   }
 };
-export { getPokemons, getMorePokemons, upperFirstLetter };
+
+export { getPokemons, getMorePokemons };

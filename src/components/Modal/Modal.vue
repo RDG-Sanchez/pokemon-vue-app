@@ -1,6 +1,9 @@
 <script setup>
-import { ref } from "vue";
+// * Components
 import Card from "../Card/Card.vue";
+
+// * VUE
+import { ref } from "vue";
 
 const props = defineProps({
   pokemon: {
@@ -14,7 +17,7 @@ const isVisible = ref(false);
 
 <template>
   <Button
-  aria-label="Ver más detalles"
+    aria-label="Ver más detalles"
     icon="pi pi-eye"
     severity="secondary"
     @click="isVisible = true"

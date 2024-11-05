@@ -1,9 +1,12 @@
 <script setup>
+// * VUE
 import { onMounted, ref } from "vue";
 
+// * Utils
 import { getPokemons, getMorePokemons } from "./utils";
 
-import DialogCard from "../DialogCard/DialogCard.vue";
+//* Components
+import Modal from "../Modal/Modal.vue";
 import Loader from "../Loader/Loader.vue";
 
 const isLoading = ref(false);
@@ -53,7 +56,7 @@ onMounted(() => {
     </Column>
     <Column class="w-1/4" header="Acciones">
       <template #body="{ data }">
-        <DialogCard :pokemon="data" />
+        <Modal :pokemon="data" />
       </template>
     </Column>
     <template #footer>
