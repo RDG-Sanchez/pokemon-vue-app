@@ -7,7 +7,7 @@
       <template #end>
         <div class="flex items-center gap-2">
           <Avatar
-            image="/public/profile.webp"
+            image="/profile.webp"
             shape="circle"
             aria-label="Foto de RDG-Sanchez"
           />
