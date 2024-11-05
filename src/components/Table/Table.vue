@@ -7,7 +7,6 @@ import { getPokemons, getMorePokemons } from "./utils";
 
 //* Components
 import Modal from "../Modal/Modal.vue";
-import Loader from "../Loader/Loader.vue";
 
 const isLoading = ref(false);
 
@@ -23,17 +22,18 @@ onMounted(() => {
 </script>
 
 <template>
-  <Loader v-if="isLoading === true" />
   <DataTable
+    class="h-full"
     :value="pokemons.results"
     :rows="10"
     :rowsPerPageOptions="[10, 15, 20, 25]"
-    paginator
+    :loading="isLoading"
     size="small"
-    v-else="isLoading === false"
+    paginator
+    rowHover
   >
     <template #header>
-      <div class="flex flex-wrap items-center justify-between py-2">
+      <div class="flex flex-wrap items-center justify-between py-2 px-4">
         <span class="text-xl font-bold">Lista de Pókemon</span>
         <Button
           @click="getMore"
@@ -42,25 +42,24 @@ onMounted(() => {
           title="Cargar más datos"
           icon="pi pi-refresh"
           rounded
-          raised
           :loading="isLoading"
         />
       </div>
     </template>
-    <Column class="w-1/4" field="id" header="ID"></Column>
-    <Column class="w-1/4" field="name" header="Nombre"></Column>
-    <Column class="w-1/4" field="type" header="Tipo">
+    <Column class="w-1/4 px-8" field="id" header="ID"></Column>
+    <Column class="w-1/4 px-8" field="name" header="Nombre"></Column>
+    <Column class="w-1/4 px-8" field="type" header="Tipo">
       <template #body="{ data }">
         <Tag :class="data.type.class">{{ data.type.name }}</Tag>
       </template>
     </Column>
-    <Column class="w-1/4" header="Acciones">
+    <Column class="w-1/4 px-8" header="Acciones">
       <template #body="{ data }">
         <Modal :pokemon="data" />
       </template>
     </Column>
     <template #footer>
-      <p class="text-center">
+      <p class="text-center py-2">
         Hay un total de
         {{ pokemons.results.length ? pokemons.results.length : 0 }} Pókemon.
       </p>

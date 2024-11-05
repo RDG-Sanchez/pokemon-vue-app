@@ -9,7 +9,7 @@ const props = defineProps({
 
 <template>
   <article class="card w-full flex flex-col items-center">
-    <img :src="pokemon.sprite" width="75" :alt="pokemon.name" />
+    <img :src="pokemon.sprite" width="75" :alt="pokemon.name" loading="lazy" />
     <div class="w-full flex flex-col items-center gap-y-4">
       <Tag :class="pokemon.type.class">{{ pokemon.type.name }}</Tag>
       <ul class="grid grid-cols-2 grid-rows-2 gap-2">

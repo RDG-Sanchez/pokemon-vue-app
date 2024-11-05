@@ -7,7 +7,7 @@
       <template #end>
         <div class="flex items-center gap-2">
           <Avatar
-            image="https://avatars.githubusercontent.com/u/128014396?v=4"
+            image="/public/profile.webp"
             shape="circle"
             aria-label="Foto de RDG-Sanchez"
           />
