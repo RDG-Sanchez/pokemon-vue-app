@@ -9,6 +9,7 @@ Esta aplicacion esta hecha con el fin de demostrar mis habilidades.
 - PrimeVue Icons
 - PrimeVue
 - TailwindCSS
+- Axios
 
 ## Inicializar el proyecto:
 - Clonar repositorio:
