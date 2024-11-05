@@ -1,5 +1,37 @@
-# Vue 3 + Vite
+# PokeAPP | Prueba técnica para Electro3
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Esta aplicacion esta hecha con el fin de demostrar mis habilidades.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Tecnolgias utilizadas:
+
+- Vue 3 + Vite
+- PrimeVue TW Plugin
+- PrimeVue Icons
+- PrimeVue
+- TailwindCSS
+
+## Inicializar el proyecto:
+- Clonar repositorio:
+```bash
+git clone https://github.com/RDG-Sanchez/pokemon-vue-app.git
+```
+
+- Dirigirse al directorio:
+```bash
+cd pokemon-vue-app
+```
+
+- Instalar dependencias:
+```bash
+npm install
+```
+
+- Iniciar servidor:
+```bash
+npm run dev
+```
+
+- Compilar el proyecto:
+```bash
+npm run build
+```
