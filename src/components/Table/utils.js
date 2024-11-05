@@ -51,7 +51,7 @@ const getPokemons = async (isLoading, setData) => {
   isLoading.value = true;
   try {
     const {
-      data: { results },
+      data: { next, results },
     } = await axios.get("https://pokeapi.co/api/v2/pokemon/?limit=50");
 
     const promises = await results.map(async ({ url }) => {
@@ -64,11 +64,47 @@ const getPokemons = async (isLoading, setData) => {
       };
     });
 
-    setData.value = await Promise.all(promises);
+    setData.value.results = await Promise.all(promises);
+    setData.value.next = next;
     isLoading.value = false;
   } catch (error) {
     alert("Ha ocurrido un error");
   }
 };
 
-export { getPokemons, upperFirstLetter, colorsDistionary, typesDictionary };
+// * Devuelve más informacion obtenida de la PokeAPI.
+const getMorePokemons = async (isLoading, setData) => {
+  isLoading.value = true;
+  try {
+    const {
+      data: { next, results },
+    } = await axios.get(setData.value.next);
+
+    const promises = await results.map(async ({ url }) => {
+      const { data } = await axios.get(url);
+
+      return {
+        id: data.id,
+        name: upperFirstLetter(data.name),
+        type: data.types[0].type.name,
+        sprite: data.sprites.front_default,
+      };
+    });
+
+    setData.value.results = [
+      ...setData.value.results,
+      ...(await Promise.all(promises)),
+    ];
+    setData.value.next = next;
+    isLoading.value = false;
+  } catch (error) {
+    alert("Ha ocurrido un error");
+  }
+};
+export {
+  getPokemons,
+  getMorePokemons,
+  upperFirstLetter,
+  colorsDistionary,
+  typesDictionary,
+};
