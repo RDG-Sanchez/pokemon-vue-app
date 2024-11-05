@@ -1,12 +1,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 
-import {
-  getPokemons,
-  getMorePokemons,
-  typesDictionary,
-  colorsDistionary,
-} from "./utils";
+import { getPokemons, getMorePokemons } from "./utils";
 
 import DialogCard from "../DialogCard/DialogCard.vue";
 import Loader from "../Loader/Loader.vue";
@@ -53,9 +48,7 @@ onMounted(() => {
     <Column class="w-1/4" field="name" header="Nombre"></Column>
     <Column class="w-1/4" field="type" header="Tipo">
       <template #body="{ data }">
-        <Tag :class="colorsDistionary(data.type)">{{
-          typesDictionary(data.type)
-        }}</Tag>
+        <Tag :class="data.type.class">{{ data.type.name }}</Tag>
       </template>
     </Column>
     <Column class="w-1/4" header="Acciones">
@@ -63,6 +56,12 @@ onMounted(() => {
         <DialogCard :pokemon="data" />
       </template>
     </Column>
+    <template #footer>
+      <p class="text-center">
+        Hay un total de
+        {{ pokemons.results.length ? pokemons.results.length : 0 }} Pókemon.
+      </p>
+    </template>
   </DataTable>
 </template>
 

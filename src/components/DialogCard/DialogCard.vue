@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import Card from "../Card/Card.vue";
 
 const props = defineProps({
   pokemon: {
@@ -13,18 +14,13 @@ const isVisible = ref(false);
 
 <template>
   <Button
+  aria-label="Ver más detalles"
     icon="pi pi-eye"
     severity="secondary"
     @click="isVisible = true"
     rounded
   />
-
-  <Dialog
-    v-model:visible="isVisible"
-    modal
-    :header="pokemon.name"
-    class="w-80"
-  >
-    <img :src="pokemon.sprite" width="75" :alt="pokemon.name" />
+  <Dialog v-model:visible="isVisible" modal :header="pokemon.name" class="w-80">
+    <Card :pokemon="pokemon" />
   </Dialog>
 </template>

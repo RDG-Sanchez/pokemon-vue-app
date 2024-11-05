@@ -1,8 +1,8 @@
 <template>
   <div class="card">
-    <Menubar class="dark:border-none border" :model="items">
+    <Menubar class="dark:border-none border py-4" :model="items">
       <template #start>
-        <h1 class="font-bold text-2xl">PokeAPP</h1>
+        <h1 aria-label="PokeAPP" class="font-bold text-2xl">PokeAPP</h1>
       </template>
       <template #item="{ item, props, hasSubmenu, root }">
         <a v-ripple class="flex items-center" v-bind="props.action">
@@ -31,6 +31,7 @@
           <Avatar
             image="https://avatars.githubusercontent.com/u/128014396?v=4"
             shape="circle"
+            aria-label="Foto de RDG-Sanchez"
           />
         </div>
       </template>
@@ -41,10 +42,5 @@
 <script setup>
 import { ref } from "vue";
 
-const items = ref([
-  {
-    label: "Inicio",
-    icon: "pi pi-home",
-  },
-]);
+const items = ref([]);
 </script>
