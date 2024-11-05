@@ -18,14 +18,14 @@ onMounted(() => {
 <template>
   <Loader v-if="isLoading === true" />
   <DataTable :value="pokemons" :rows="10" :rowsPerPageOptions="[10, 15, 20, 25]" v-else paginator size="small">
-    <Column field="id" header="ID" style="width: 25%"></Column>
-    <Column field="name" header="Nombre" style="width: 25%"> </Column>
-    <Column field="type" header="Tipo" style="width: 25%">
+    <Column class="w-1/4" field="id" header="ID"></Column>
+    <Column class="w-1/4" field="name" header="Nombre"></Column>
+    <Column class="w-1/4" field="type" header="Tipo">
       <template #body="{ data }">
         <Tag :style="colorsDistionary(data.type)">{{ typesDictionary(data.type) }}</Tag>
       </template>
     </Column>
-    <Column header="Acciones" style="width: 25%">
+    <Column class="w-1/4" header="Acciones">
       <template #body="{ data }">
         <DialogCard :pokemon="data" />
       </template>

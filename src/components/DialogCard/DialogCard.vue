@@ -23,7 +23,7 @@ const isVisible = ref(false);
     v-model:visible="isVisible"
     modal
     :header="pokemon.name"
-    :style="{ width: '25rem' }"
+    class="w-80"
   >
     <img :src="pokemon.sprite" width="75" :alt="pokemon.name" />
   </Dialog>

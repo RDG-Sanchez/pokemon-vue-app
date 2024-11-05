@@ -5,12 +5,9 @@ import Table from "./components/Table/Table.vue";
 </script>
 
 <template>
-  <main class="main"><Table /></main>
+  <main class="flex flex-col">
+    <Table />
+  </main>
 </template>
 
-<style scoped>
-.main {
-  display: flex;
-  flex-direction: column;
-}
-</style>
+<style scoped></style>
